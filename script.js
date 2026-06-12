@@ -1,7 +1,7 @@
 async function tảiApi() {
     try {
         // DÁN LINK WORKER MỚI VÀO ĐÂY
-        const response = await fetch("https://my-json-api.ten-cua-may.workers.dev");
+        const response = await fetch("https://cloud-mini-sitek.kient7665.workers.dev/");
         
         const data = await response.json();
         
