@@ -1,13 +1,20 @@
-async function tảiApi() {
+async function loadAPI() {
+
+    const apiURL =
+    "https://your-worker-name.your-subdomain.workers.dev";
+
     try {
-        // DÁN LINK WORKER MỚI VÀO ĐÂY
-        const response = await fetch("https://cloud-mini-sitek.kient7665.workers.dev/");
-        
+
+        const response = await fetch(apiURL);
+
         const data = await response.json();
-        
-        // Hiển thị kết quả lên ô có id="kết quả"
-        document.getElementById("kết quả").innerText = JSON.stringify(data, null, 2);
-    } catch (error) {
-        document.getElementById("kết quả").innerText = "Lỗi: " + error.message;
+
+        document.getElementById("result").textContent =
+        JSON.stringify(data, null, 2);
+
+    } catch(error){
+
+        document.getElementById("result").textContent =
+        "Lỗi kết nối API!";
     }
 }
