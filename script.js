@@ -1,11 +1,19 @@
-async function tảiApi() {
-    try {
-        // Dán cái link mày vừa copy vào giữa hai dấu nháy kép này:
-        const response = await fetch(https://cloud-mini-sitek.kient7665.workers.dev/);
-        
-        const data = await response.json();
-        document.getElementById("kết quả").innerText = JSON.stringify(data, null, 2);
-    } catch (error) {
-        document.getElementById("kết quả").innerText = "Lỗi: " + error.message;
-    }
-}
+export default {
+  async fetch(request, env, ctx) {
+    // Dữ liệu JSON chuẩn theo yêu cầu của đề bài
+    const data = {
+      course: "Cloud Computing",
+      service: "Cloudflare Workers",
+      status: "success"
+    };
+
+    // Trả về JSON kèm cấu hình CORS để Web Pages gọi vào không bị chặn
+    return new Response(JSON.stringify(data), {
+      headers: {
+        "Content-Type": "application/json",
+        "Access-Control-Allow-Origin": "*", 
+        "Access-Control-Allow-Methods": "GET, HEAD, POST, OPTIONS",
+      },
+    });
+  },
+};
